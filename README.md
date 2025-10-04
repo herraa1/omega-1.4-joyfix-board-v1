@@ -94,7 +94,7 @@ After a deeper analysis with the help of @aoineko, the author of MSXgl, it was d
 
 # The Omega mainboard 1.4 joystick circuit
 
-[<img src="images/msx-omega-1.4-psg-circuit-diagram.png" width="1024"/>](images/msx-omega-1.4-psg-circuit-diagram.png).
+[<img src="images/msx-omega-1.4-psg-circuit-diagram.png" width="1024"/>](images/msx-omega-1.4-psg-circuit-diagram.png)
 
 As can be seen on the depicted diagram, the Omega Home Computer PSG circuit tries to mimic the standard MSX joystick circuit, but has a subtle implementation flaw.
 
@@ -129,9 +129,11 @@ In the Omega Mainboard 1.4 joystick circuit we have the following connections re
 
 A clean and easy approach to fix the circuit is to use an interposer board at U42 (74LS07 open-collector buffer) that performs the needed re-mapping of signals.
 
+[<img src="images/omega-1.4-joyfix-board-overview-render.png" width="512"/>](images/omega-1.4-joyfix-board-overview-render.png)
+
 The idea of the interposer board was brought up by Ludo and shared on [issue #56](https://github.com/skiselev/omega/issues/56) of the [Omega github page](https://github.com/skiselev/omega) where you can see a photo of his CNC fabricated interposer board.
 
-[<img src="images/omega-1.4-joyfix-board-overview-render.png" width="512"/>](images/omega-1.4-joyfix-board-overview-render.png)
+[<img src="images/ludo-interposer-board.png" width="256"/>](images/ludo-interposer-board.png)
 
 So to re-route the signals to match the MSX standard joystick circuit we can map the U42-original signals to a new set of U42-interposed signals (where the 74LS07 will be actually connected), like this:
 - Connect `Pin 10 of U42-interposed` (buffered output of Pin 11 of U42-interposed which connects to JB2/IOB2) to `Pin 12 of U42-original` (connected to joystick port 2 trigger A, aka TRG1_B), so that Pin 11 of U42-original (JB2/IOB2) outputs to Pin 12 of U42-original (joystick port 2 trigger A) (![#ffff00](https://placehold.co/15x15/ffff00/ffff00.png) `yellow` path on the diagram)
