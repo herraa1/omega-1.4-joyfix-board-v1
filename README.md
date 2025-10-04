@@ -1,6 +1,9 @@
-# Omega Mainboard 1.4 JoyFix Board
+# Omega Mainboard Revision 1.4 JoyFix Board
 
-This is an interposer board that fixes the existing bug in the joystick circuit of the Omega Mainboard 1.4.
+This is an interposer board that fixes the existing bug in the joystick circuit of the Omega Mainboard revision 1.4 of the [Omega Home Computer](https://github.com/skiselev/omega) by Sergey Kiselev.
+
+> [!NOTE]
+> This fix is not needed if you already have a [Omega Mainboard revision 1.5](https://github.com/skiselev/omega/blob/master/Mainboard.md#changes), which includes the joystick circuit fix.
 
 
 # The standard MSX joystick circuit
@@ -91,6 +94,10 @@ While troubleshooting the issue, @PaxNL and @Arjan determined by looking at the 
 
 After a deeper analysis with the help of @aoineko, the author of MSXgl, it was determined that there was an implementation bug in the Omega Home Computer joystick circuit diagram which caused exactly that behavior as a result of the software interaction with the buggy hardware.
 
+> [!NOTE]
+> The joystick circuit bug does not affect normal operation of joysticks if the software never writes a "0" to the trigger outputs, which is the case for the vast majority of games that use just MSX joysticks and no other devices connected to the joystick ports.
+> That's probably why the bug remained undetected for such a long time.
+
 
 # The Omega mainboard 1.4 joystick circuit
 
@@ -155,7 +162,7 @@ And the complete trigger connection diagram matches now the original MSX joystic
 
 # Hardware
 
-## [Omega-1.4-U42-joyfix-v1-Build1](hardware/kicad/omega-1.4-joyfix-board-Build1/)
+## [Omega-1.4-U42-joyfix-v1-Build1](hardware/kicad/omega-1.4-joyfix-board-v1-Build1/)
 
 :white_check_mark: This board has been successfully built and tested.
 
